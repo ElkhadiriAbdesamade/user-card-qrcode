@@ -1,0 +1,72 @@
+<section class="vh-100"  style="background-color: #f4f5f7;">
+    <div class="px-4">
+        <a href="/" style="margin-top: 20px" class="btn btn-info btn-block">
+            <i class="fa fa-arrow-left">
+                Back
+            </i>
+        </a>
+        <button  printSectionId="sec" styleSheetFile="assets/css/style.css" ngxPrint style="margin-top: 20px;float: right;" class="btn btn-danger btn-block">
+            <i class="fa fa-print">
+                print card
+            </i>
+        </button>
+    </div>
+    <div id="sec" class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div   class="col col-lg-6 mb-4 mb-lg-0">
+                <div class="card mb-3" style="border-radius: .5rem;">
+                    <div id="cont" class="row g-0">
+                        <div id="userinfo" class="col-md-6 gradient-custom flex flex-col justify-content-center align-items-center text-white"
+                            style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                            <img [src]="user.image" alt="Avatar" id="img" class="img-fluid my-5"
+                                style="width: 250px;" />
+                            <h1>{{user.first_name}} {{user.last_name}}</h1>
+                            <h1>{{user.first_name_arabs}} {{user.last_name_arabs}}</h1>
+                            <p>{{user.profession}}</p>
+                          
+                          
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body p-4">
+                                <h2>Information</h2>
+                                <hr class="mt-0 mb-4">
+                                <div class="row pt-1">
+                                    <div class="col-6 mb-3">
+                                        <h4>CIN</h4>
+                                        <p class="text-muted">{{user.cin}} </p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <h4>Birth Date</h4>
+                                        <p class="text-muted">{{user.date_birth}} </p>
+                                    </div>
+                                </div>
+                                <h2>Card Info</h2>
+                                <hr class="mt-0 mb-4">
+                                <div class="row pt-1">
+                                    <div class="col-6 mb-3 flex align-items-center ">
+                                        <h4>Type :</h4>
+                                        <p class="text-muted p-2">{{user.type_cart}} </p>
+                                    </div>
+                                </div>
+                                <h2>QR Code</h2>
+                                <hr class="mt-0">
+                                <div class="row pt-1">
+                                    <div class="col-6 text-center">
+                                        <div class="qrcodeImage">
+                                            <qrcode [qrdata]="'First Name :'+ this.user.first_name +'/ Last Name :'+ this.user.last_name+'/ CIN :'+ this.user.cin+'/ Birth Date :'+ this.user.date_birth" [allowEmptyString]="true"
+                                                [cssClass]="'center'" [colorDark]="'#000000ff'"
+                                                [colorLight]="'#ffffffff'" [elementType]="'canvas'"
+                                                [errorCorrectionLevel]="'M'"
+                                                [title]="'user Info In Qr Code'" [width]="300"></qrcode>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</section>

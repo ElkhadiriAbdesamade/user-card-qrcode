@@ -1,0 +1,22 @@
+.input_cont{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container{
+    max-width: 900px !important;
+
+}
+
+.form-group{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+mat-form-field {
+    margin-right: 12px;
+  }
+
+  .mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }

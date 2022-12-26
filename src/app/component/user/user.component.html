@@ -1,0 +1,87 @@
+<div class="container h-screen">
+    <div style="padding-top: 50px;">
+        <div class="row my-4">
+            <div class="col-md-12 text-center ">
+                <h1 class="fw-bolder">User Information</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+
+                <div class="input_cont">
+                    <div class="form-group">
+                        <label for="lable">first name</label>
+                        <input type="text" [(ngModel)]="user.first_name" id="firstname" class="form-control">
+                    </div>
+                    <div class="form-group" style="text-align: right;">
+                        <label for="lable">: الاسم الشخصي</label>
+                        <input [matKeyboard]="'ar'" type="text" dir="rtl" [(ngModel)]="user.first_name_arabs"
+                            id="firstname" class="form-control">
+                        <div class="simple-keyboard"></div>
+                    </div>
+                </div>
+
+                <div class="input_cont">
+                    <div class="form-group">
+                        <label for="lable">last name</label>
+                        <input type="text" [(ngModel)]="user.last_name" id="lastname" class="form-control">
+                    </div>
+                    <div class="form-group" style="text-align: right;">
+                        <label for="lable">: الاسم العائلي</label>
+                        <input type="text" [matKeyboard]="'ar'" dir="rtl" [(ngModel)]="user.last_name_arabs"
+                            id="lastname" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lable">CIN :</label>
+                    <input type="text" [(ngModel)]="user.cin" id="address" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="lable">Profession :</label>
+                    <input type="text" [(ngModel)]="user.profession" id="datenaiss" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="lable">Birth Date :</label>
+                    <input type="date" [(ngModel)]="user.date_birth" id="userid" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="lable">Cart Type : </label>
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="user.type_cart">
+                        <mat-radio-button  value="A">A</mat-radio-button>
+                        <mat-radio-button  value="B">B</mat-radio-button>
+                      </mat-radio-group>
+                   
+                </div>
+                <div class="form-group">
+                    <label for="lable">Picture Url:</label>
+                    <input type="text" [(ngModel)]="user.image" class="form-control">
+                </div>
+
+                <div class="text-center">
+                    <button style="margin-top: 20px" class="btn btn-success btn-block" (click)="addUser()">
+                        <i class="fa fa-paper-plane">
+                            Generate carte
+                        </i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<mat-form-field appearance="fill">
+    <mat-label>Horizontal position</mat-label>
+    <mat-select [(value)]="horizontalPosition">
+        <mat-option value="center">Center</mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<!-- <button mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+    Pool party!
+</button> -->
