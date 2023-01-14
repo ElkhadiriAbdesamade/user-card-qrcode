@@ -30,6 +30,8 @@ export class UserComponent {
     type_cart: "",
     image: "https://images.unsplash.com/photo-1640951613773-54706e06851d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
   }
+cin="";
+  userc!:User;
 
   ngOnInit(): void {
   }
@@ -41,18 +43,32 @@ export class UserComponent {
 
   }
 
-  addUser() {
+  
+  getUser(cin: string) {
     //console.log(this.user);
-    if (this.validate()) {
+    this.api.getuser(cin).subscribe({
+      next: (res) => {
+        //alert("card created Successfully");
+        this.userc = res[0] 
+      },
+      error: () => {
+        alert("Error While creating the card")
+      }
+    })
+  }
+
+
+  addUser() {
+   
+    this.getUser(this.user.cin)
+
+    if (this.validate() || this.userc!==undefined) {
       this.api.adduser(this.user).subscribe({
         next: (res) => {
 
           alert("Info Added Successfully");
           this.router.navigateByUrl('cart/' + this.user.cin);
           this.restuser();
-
-
-
         },
         error: () => {
           alert("Error While adding the Info")
@@ -65,11 +81,20 @@ export class UserComponent {
   }
 
   openSnackBar() {
-    this._snackBar.open('Pleas Fill All Your Info !!', 'Close', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration: 5000,
-    });
+    if (this.user) {
+      this._snackBar.open('CIN already exist !!', 'Close', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 5000,
+      });
+    }else{
+      this._snackBar.open('Pleas Fill All Your Info !!', 'Close', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 5000,
+      });
+    }
+   
   }
 
   restuser() {
@@ -94,5 +119,15 @@ export class UserComponent {
       return false
     }
     return true
+  }
+
+  search(){
+    this.getUser(this.user.cin)
+
+    if (this.userc.first_name!==""){
+      alert('exist')
+      this.router.navigateByUrl('cart/' + this.cin);
+
+    } 
   }
 }

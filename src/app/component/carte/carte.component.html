@@ -16,7 +16,7 @@
             <div   class="col col-lg-6 mb-4 mb-lg-0">
                 <div class="card mb-3" style="border-radius: .5rem;">
                     <div id="cont" class="row g-0">
-                        <div id="userinfo" class="col-md-6 gradient-custom flex flex-col justify-content-center align-items-center text-white"
+                        <div id="userinfo" class="col-md-6 gradient-custom user_img flex flex-col justify-content-center align-items-center text-white"
                             style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                             <img [src]="user.image" alt="Avatar" id="img" class="img-fluid my-5"
                                 style="width: 250px;" />
@@ -50,12 +50,12 @@
                                 </div>
                                 <h2>QR Code</h2>
                                 <hr class="mt-0">
-                                <div class="row pt-1">
-                                    <div class="col-6 text-center">
-                                        <div class="qrcodeImage">
+                                <div class="row qrcode pt-1">
+                                    <div class="col-6 qrcode text-center">
+                                        <div class="qrcodeImage qrcode">
                                             <qrcode [qrdata]="'First Name :'+ this.user.first_name +'/ Last Name :'+ this.user.last_name+'/ CIN :'+ this.user.cin+'/ Birth Date :'+ this.user.date_birth" [allowEmptyString]="true"
                                                 [cssClass]="'center'" [colorDark]="'#000000ff'"
-                                                [colorLight]="'#ffffffff'" [elementType]="'canvas'"
+                                                [colorLight]="'#ffffffff'" 
                                                 [errorCorrectionLevel]="'M'"
                                                 [title]="'user Info In Qr Code'" [width]="300"></qrcode>
                                         </div>

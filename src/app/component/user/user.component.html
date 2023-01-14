@@ -5,6 +5,7 @@
                 <h1 class="fw-bolder">User Information</h1>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-md-8 mx-auto">
 
@@ -68,13 +69,29 @@
 
             </div>
 
+      
+
+            <div class="row col-md-8 mx-auto">
+                <div class="form-group">
+                    <label for="lable">CIN :</label>
+                    <input type="text" [(ngModel)]="cin" id="address" class="form-control">
+                </div>
+                <div class="text-center">
+                    <button style="margin-top: 20px" class="btn btn-success btn-block" (click)="search()">
+                        <i class="fa fa-search">
+                            Search 
+                        </i>
+                    </button>
+                </div>
+            </div>
+
         </div>
 
 
     </div>
 </div>
 
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" hidden>
     <mat-label>Horizontal position</mat-label>
     <mat-select [(value)]="horizontalPosition">
         <mat-option value="center">Center</mat-option>
